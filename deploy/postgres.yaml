@@ -59,7 +59,7 @@ spec:
                   name: petclinic-db
                   key: POSTGRES_PASSWORD
           securityContext:
-            readOnlyRootFilesystem: false
+            readOnlyRootFilesystem: true
             allowPrivilegeEscalation: false
             capabilities:
               drop: ["ALL"]
