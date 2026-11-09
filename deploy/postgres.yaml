@@ -59,6 +59,7 @@ spec:
                   name: petclinic-db
                   key: POSTGRES_PASSWORD
           securityContext:
+            readOnlyRootFilesystem: false
             allowPrivilegeEscalation: false
             capabilities:
               drop: ["ALL"]
@@ -75,6 +76,17 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /var/lib/postgresql
+            - name: run
+              mountPath: /var/run/postgresql
+            - name: tmp
+              mountPath: /tmp
+
+      volumes:
+        - name: run
+          emptyDir: {}
+        - name: tmp
+          emptyDir: {}
+
   volumeClaimTemplates:
     - metadata:
         name: data
