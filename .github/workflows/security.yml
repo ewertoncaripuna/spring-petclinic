@@ -47,3 +47,20 @@ jobs:
           scan-ref: deploy/
           severity: HIGH,CRITICAL
           exit-code: '1'
+
+   trivy-image:
+    name: Scan da imagem (CVEs)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Build da imagem
+        run: docker build -t petclinic:${{ github.sha }} .
+
+      - uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: petclinic:${{ github.sha }}
+          scanners: vuln
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: '1'
