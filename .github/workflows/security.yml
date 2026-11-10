@@ -48,7 +48,7 @@ jobs:
           severity: HIGH,CRITICAL
           exit-code: '1'
 
-   trivy-image:
+  trivy-image:
     name: Scan da imagem (CVEs)
     runs-on: ubuntu-latest
     steps:
