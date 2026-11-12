@@ -48,4 +48,4 @@ _site/
 !petclinic.css
 
 # secrets reais do k8s
-deploy/secret.yaml
+deploy/local/secret.yaml
