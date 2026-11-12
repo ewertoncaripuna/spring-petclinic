@@ -9,3 +9,7 @@ resources:
   - deployment.yaml
   - service.yaml
   - networkpolicy.yaml
+images:
+  - name: petclinic
+    newName: ghcr.io/ewertoncaripuna/spring-petclinic
+    digest: sha256:d6e36a298a7c6e97a6d93cbe83f3ded12062ebdeefb65577b7ec617b2cb5519d
