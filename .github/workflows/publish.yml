@@ -43,3 +43,6 @@
 
       - name: Assina a imagem
         run: cosign sign --yes ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest }}
+      
+      - name: Anexa o SBOM
+        run: cosign attest --yes --type cyclonedx --predicate sbom.cdx.json ghcr.io/${{ github.repository }}@${{ steps.build.outputs.digest }}
